@@ -1,0 +1,16 @@
+{
+    "2bd1c688-31c5-443e-ae25-59aa5b6431fb": {
+        "id": "34f0942a-3825-4792-b392-270d7ff543b2",
+        "name": "REST API",
+        "designId": "0789ebc3-5a15-47b5-afa8-e08f4e15669f",
+        "pluginId": "2bd1c688-31c5-443e-ae25-59aa5b6431fb",
+        "publicData": {}
+    },
+    "29809245-a5ea-4687-af79-952998abab22": {
+        "id": "248b08b3-3396-432f-bb99-ced9b08115f6",
+        "name": "Airtable",
+        "designId": "0789ebc3-5a15-47b5-afa8-e08f4e15669f",
+        "pluginId": "29809245-a5ea-4687-af79-952998abab22",
+        "publicData": {}
+    }
+}
