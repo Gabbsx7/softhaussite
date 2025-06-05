@@ -1,49 +1,109 @@
 <!DOCTYPE html>
+ 
 <!-- wwFront:start -->
 <html class="" lang="<%= htmlWebpackPlugin.options.lang %>">
-  <head>
-    <!-- Metadados básicos -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=0" />
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=0" />
+        <base
+            href="<%= htmlWebpackPlugin.options.baseTag?.href %>"
+            target="<%= htmlWebpackPlugin.options.baseTag?.target %>"
+        />
 
-    <!-- Base tag gerada pelo WeWeb -->
-    <base
-      href="<%= htmlWebpackPlugin.options.baseTag?.href %>"
-      target="<%= htmlWebpackPlugin.options.baseTag?.target %>"
-    />
+        <% if (htmlWebpackPlugin.options.title) { %>
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <% } %>
 
-    <!-- ✅ Título fixo -->
-    <title>Softhaus — Desenvolvimento Ágil e Inteligente</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico?_wwcv=<%= htmlWebpackPlugin.options.cacheVersion %>" />
 
-    <!-- ✅ Favicon fixo -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-
-    <!-- Manifest e demais assets permanecem iguais -->
-    <link rel="manifest" href="manifest.json?_wwcv=1" />
-    <meta name="theme-color" content="" />
-
-    <!-- fontes, estilos e scripts gerados pelo WeWeb -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="preload"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <!-- … (demais links e estilos intactos) … -->
-
-    <%= htmlWebpackPlugin.options.scripts?.head %>
-  </head>
-
-  <body style="margin: 0; font-family: var(--ww-default-font-family, unset)">
-    <noscript>
-      <strong>
-        We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.
-      </strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <%= htmlWebpackPlugin.options.scripts?.body %>
-  </body>
+        <link rel="manifest" href="manifest.json?_wwcv=2" />
+        <meta name="theme-color" content="" />
+        <link rel="apple-touch-icon" sizes="48x48" href="public/images/48-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="72x72" href="public/images/72-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="96x96" href="public/images/96-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="128x128" href="public/images/128-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="144x144" href="public/images/144-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="152x152" href="public/images/152-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="192x192" href="public/images/192-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="256x256" href="public/images/256-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="384x384" href="public/images/384-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+<link rel="apple-touch-icon" sizes="512x512" href="public/images/512-00f67f34-609b-4e28-b979-b314915e6b30.png?_wwcv=2">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link href="public/fonts/Phosphor/font.css?_wwcv=2" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link href="public/fonts/Aseina Style II/font.css?_wwcv=2" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<style>:root{ --ww-default-font-family: 'Roboto', sans-serif }</style>
+        <style>
+:root {
+--010441cb-2213-40e2-b61d-7abbc5e86808: 500 40px/48px var(--ww-default-font-family, sans-serif);
+--81543343-c1c0-4e2f-b5ae-c82f6d510fba: 500 32px/40px var(--ww-default-font-family, sans-serif);
+--eeab54aa-3994-4286-b714-a53b8494b9fc: 500 28px/36px var(--ww-default-font-family, sans-serif);
+--54a62763-2872-4548-a6c6-ecb50817d81e: 500 24px/32px var(--ww-default-font-family, sans-serif);
+--35c57565-6186-4a62-8234-5222c912722d: 500 24px/32px var(--ww-default-font-family, sans-serif);
+--d83c346f-b5c8-4c1d-85e5-fd1204131965: 500 20px/28px var(--ww-default-font-family, sans-serif);
+--500eb095-0df7-457f-9e47-a07a37edc40a: 500 22px/30px var(--ww-default-font-family, sans-serif);
+--1211122b-69bb-4dfe-90f9-9dc446163172: 400 56px/64px var(--ww-default-font-family, sans-serif);
+--3ba979b0-0640-476e-823f-b668f8588bb2: 500 18px/24px var(--ww-default-font-family, sans-serif);
+--5aa9c28d-4337-439a-9c5e-4a8da0838002: 500 18px/24px var(--ww-default-font-family, sans-serif);
+--38a49f30-37ad-4930-891c-98bdc1e2fb5a: 500 12px/18px var(--ww-default-font-family, sans-serif);
+--55bac52f-188e-4907-a9ad-c0ce9dab8ccd: 400 14px/22px var(--ww-default-font-family, sans-serif);
+--1da524df-cd2a-4fc2-a3e4-0fc3c38b8720: 500 32px/40px var(--ww-default-font-family, sans-serif);
+--5e58ebe6-5b3e-4f61-b2ed-b858fd324007: hsl(235, 48%, 7%);
+--b199241a-e162-419f-9127-560b428f91d1: hsl(235, 26%, 11%);
+--d2d844c2-bf91-47f0-a745-9f93e78bc296: #F7F7F7;
+--63664c2c-5999-484c-94ef-4d289d0833ec: #232424;
+--3360a63e-ed3e-466e-9342-ca12698ee6b6: #373839;
+--0f1cda4c-8e44-4f0f-bc47-0a0bf2a3adc6: #0887D4;
+--0b6e367e-4d31-4abf-8c5a-fc7e4041e400: #0990E2;
+--03fd5d07-f759-4627-818b-172362897915: hsl(225, 29%, 13%);
+--3abf5ee7-c8e6-4db3-8660-2dc1f10a6836: #71797A;
+--71bd8f74-129b-4779-96de-0fa498c397ab: #606B6D;
+--bd47b8c7-fcc4-4be6-b5d2-a16314db16c9: #F7F7F7;
+--33a2ad92-b237-458d-b944-b287d4c3fe8d: #BCC0C1;
+--83fc9205-7629-4ad8-857c-44e8118081df: 2px;
+--e44b7e81-f880-45f6-bbac-d2ebcf5ce67f: 4px;
+--902fe16c-9a50-401c-9e34-5c9ac199f4bd: 8px;
+--36620b76-fe70-4bc7-bb60-f1f81da9054d: 12px;
+--d1477934-0941-4bb4-a7e2-5af9fdc30407: 16px;
+--75c5f0b5-be69-45bd-a6d3-1be42d970269: 20px;
+--99b178fd-ad4f-4304-b505-67ccbfdcfbaf: 24px;
+--b683da6a-80bf-4e11-ba27-e1d43927cc1f: 32px;
+--c6ec1111-295b-48bf-bf82-8ab0eeefa029: 40px;
+--2fa2edc3-318f-4135-9b54-abc270607128: 500 16px/24px var(--ww-default-font-family, sans-serif);
+--3ba4e6f9-e23c-4808-b243-21b9fcba14b4: 500 14px/22px var(--ww-default-font-family, sans-serif);
+--42f57814-22c7-4b67-8b6a-1afd9bf122d6: #070814;
+--befd22f8-c602-46a9-abb5-967900f6d975: #C0C3D8;
+--811974c9-da01-47a4-ba50-786b13f4df2c: hsl(235, 26%, 9%);
+--9603b124-9666-43c9-bb0d-73ed3f1524f3: hsl(235, 22%, 16%);
+--334af0b4-69fb-4e43-8532-52550aeab23e: 400 12px/16px var(--ww-default-font-family, sans-serif);
+--bc261c2b-80b3-4187-b339-75bacd8ad228: 300 18px/30px var(--ww-default-font-family, sans-serif);
+--89a919b7-b9ff-47a5-a722-d128b35e40dc: 600 68px/74px var(--ww-default-font-family, sans-serif);
+--ae3fdc11-4dde-4a73-adf7-3f501832dab9: #F6F6F9;
+--91913df4-1838-4741-8d14-e8c57d31c51f: #070814;
+--a06fa988-49e6-4246-b03d-61bc29ab9a00: hsl(240, 20%, 92%);}
+.ww-app-theme-dark {
+}
+</style>
+        <link href="https://cdn.weweb.io/public/icons/phosphor/1.0.0/regular/phosphor-style.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <% for (let link of htmlWebpackPlugin.options?.alternateLinks || []) { %>
+        <link rel="<%= link.rel %>" hreflang="<%= link.hreflang %>" href="<%= link.href %>" />
+        <% } %> <% if (htmlWebpackPlugin.options.structuredData) { %>
+        <script type="application/ld+json">
+            <%= htmlWebpackPlugin.options.structuredData %>
+        </script>
+        <% } %> <%= htmlWebpackPlugin.options.scripts?.head %>
+    </head>
+    <body style="margin: 0; font-family: var(--ww-default-font-family, unset)">
+        <noscript>
+            <strong>
+                We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to
+                continue.
+            </strong>
+        </noscript>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+        <%= htmlWebpackPlugin.options.scripts?.body %>
+    </body>
 </html>
 <!-- wwFront:end -->
