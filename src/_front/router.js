@@ -152,10 +152,13 @@ if (page404) {
 
 let routerOptions = {};
 
+const PREVIEW_URL = process.env.VUE_APP_PREVIEW_URL || '';
+const WW_ENV = process.env.WW_ENV || '';
+
 const isProd =
     !window.location.host.includes( //TODO: add staging2 ?
-        '-staging.' + (process.env.WW_ENV === 'staging' ? process.env.VUE_APP_PREVIEW_URL : '')
-    ) && !window.location.host.includes(process.env.VUE_APP_PREVIEW_URL);
+        '-staging.' + (WW_ENV === 'staging' ? PREVIEW_URL : '')
+    ) && !window.location.host.includes(PREVIEW_URL);
 
 if (isProd && window.wwg_designInfo.baseTag?.href) {
     let baseTag = window.wwg_designInfo.baseTag.href;

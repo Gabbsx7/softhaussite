@@ -34,7 +34,11 @@ export function addMediaQueriesListener(screenSizes, onScreenSizeChange) {
     // We return a function to remove all listeners
     return function unsubscribe() {
         listeners.forEach(({ listener, mediaQueryList }) => {
-            mediaQueryList.removeEventListener(listener);
+            if (mediaQueryList.removeEventListener) {
+                mediaQueryList.removeEventListener('change', listener);
+            } else if (mediaQueryList.removeListener) {
+                mediaQueryList.removeListener(listener);
+            }
         });
     };
 }

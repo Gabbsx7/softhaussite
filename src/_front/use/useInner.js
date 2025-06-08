@@ -57,7 +57,7 @@ export function useInner(baseUid, { context, props }, componentIdentifier) {
         }
     });
 
-    // TODO: strange that it is needed. May broke in production
+    // Wrap getValue to keep a stable reference used inside eval
     const getValueFn = getValue;
 
     function setFormula(formulaId) {
