@@ -2,17 +2,15 @@ name: Deploy Web App to Azure Static Web Apps
 
 on:
   push:
-    branches: [ "main" ]           # dispara em cada push no main
+    branches: [ "main" ]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches: [ "main" ]
 
-# ─────────────────────────────────────────────────────────────
-# Variáveis globais
 env:
-  APP_LOCATION: "/"                # raiz do projeto
-  API_LOCATION: ""                 # deixe vazio se não usa Azure Functions
-  APP_ARTIFACT_LOCATION: "dist"    # pasta gerada pelo WeWeb/Vue
+  APP_LOCATION: "/"         # raiz do projeto
+  API_LOCATION: ""          # sem Azure Functions
+  APP_ARTIFACT_LOCATION: "dist"  # Vue CLI gera aqui
   AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
 
 permissions:
@@ -28,22 +26,20 @@ jobs:
         with:
           submodules: true
 
-      - name: Deploy to Azure Static Web Apps
-        id: deploy
+      - name: Build and Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}      # comenta PRs, etc.
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: ${{ env.APP_LOCATION }}
           api_location: ${{ env.API_LOCATION }}
-          app_artifact_location: ${{ env.APP_ARTIFACT_LOCATION }}
-          skip_app_build: true                         # 👉 já vem pronto em dist, só faça upload
+          app_artifact_location: ${{ env.APP_ARTIFACT_LOCATION }}  # dist
+          # (removemos skip_app_build)
 
   close_pull_request_job:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    name: Close Pull Request
     steps:
       - uses: Azure/static-web-apps-deploy@v1
         with:
